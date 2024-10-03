@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace web3.Models
@@ -19,5 +20,7 @@ namespace web3.Models
 
         public Boolean State { get; set; } = true;
 
+        [DisplayName("Creation Date")]
+        public DateTime Date {  get; set; } = DateTime.Now;
     }
 }

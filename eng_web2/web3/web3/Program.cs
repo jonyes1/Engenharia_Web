@@ -7,8 +7,16 @@ builder.Services.AddDbContext<web3Context>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<DBInitializer>();
 
 var app = builder.Build();
+
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
+var initalizer = services.GetRequiredService<DBInitializer>();
+
+initalizer.Run();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
