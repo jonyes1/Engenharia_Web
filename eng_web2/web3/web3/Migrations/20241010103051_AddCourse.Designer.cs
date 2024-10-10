@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using web3.Data;
 
@@ -11,9 +12,11 @@ using web3.Data;
 namespace web3.Migrations
 {
     [DbContext(typeof(web3Context))]
-    partial class web3ContextModelSnapshot : ModelSnapshot
+    [Migration("20241010103051_AddCourse")]
+    partial class AddCourse
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +51,7 @@ namespace web3.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("web3.Models.Course", b =>
@@ -85,7 +88,7 @@ namespace web3.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Corses", (string)null);
+                    b.ToTable("Corses");
                 });
 
             modelBuilder.Entity("web3.Models.Course", b =>

@@ -15,5 +15,7 @@ namespace web3.Data
         }
 
         public DbSet<web3.Models.Category> Category { get; set; } = default!;
+
+        public DbSet<Course> Corses { get; set; }
     }
 }
